@@ -7,7 +7,42 @@
     // output: 7
 
 function daysPosition(day, offset) {
+    let ret = 1;
+    switch(day) {
+        case "sunday":
+            ret = 1;
+            break;
+        case "monday":
+            ret = 2;
+            break;
+        case "tuesday":
+            ret = 3;
+            break;
+        case "wednesday":
+            ret = 4;
+            break;
+        case "thursday":
+            ret = 5;
+            break;
+        case "friday":
+            ret = 6;
+            break;
+        case "saturday":
+            ret = 7;
+            break;
+        default:
+          return "That's not a day of the week";
+      }
 
+      if(offset)
+      {
+          ret-= 1;
+          if (ret === 0)
+          {
+              ret = 7;
+          }
+      }
+      return ret;
 }
 
 
@@ -27,7 +62,40 @@ function daysPosition(day, offset) {
  */
 
  function golfScore(score, par) {
+     var ret = ""
+    switch (score - par)
+    {
+        case (1):
+        case (-3):
+            ret = "Ace";
+            break;
+            case (-2):
+            ret = "Eagle";
+            break;
+            case (-1):
+            ret = "Birdie";
+            break;
+            case (0):
+            ret = "Par";
+            break;
+            case (1):
+            ret = "Bogie";
+            break;
+            case (2):
+            ret = "Double Bogie";
+            break;
+            case (3):
+            ret = "Ouch";
+            break;
+        default:
+            break;
+    }
 
+    if (score > 3)
+    {
+        ret = "Ouch";
+    }
+    return ret;
  }
  
 
@@ -52,5 +120,29 @@ function daysPosition(day, offset) {
 let count = 0
 
 function cardCounter(card) {
+    switch(card)
+    {
+        case ('2'):
+        case ('3'):
+        case ('4'):
+        case ('5'):
+        case ('6'):
+            count = count + 1;
+            break;
+        case ('10'):
+        case ('J'):
+        case ('Q'):
+        case ('K'):
+        case ('A'):
+            count = count - 1;
+            break;
+    }
 
+        if (count > 0){
+            return count.toString() + " Bet";
+        }
+        else
+        {
+            return count.toString() + " Hold";
+        }
 }
